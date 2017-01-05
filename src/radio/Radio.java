@@ -1,5 +1,7 @@
 package radio;
 
+import java.io.File;
+
 public class Radio 
 {
 	RadioGUI gui;
@@ -12,12 +14,32 @@ public class Radio
 	
 	public static void main(String[] args)
 	{
-		new Radio();
+		if (args.length == 1)
+		{
+			if (new File(args[0]).exists() == false)
+			{
+				System.out.println("config file not found: " + args[0]);
+				return;
+			}
+			new Radio(args[0]);
+		}
+		else
+		{
+			new Radio();
+		}
 	}
 	
 	public Radio()
 	{
 		stations = new StationList("radio.config");
+		streamURL = stations.stations.get(0).url;
+		gui = new RadioGUI(this, stations);
+		handler = new MPGHandler(gui);
+	}
+	
+	public Radio(String path)
+	{
+		stations = new StationList(path);
 		streamURL = stations.stations.get(0).url;
 		gui = new RadioGUI(this, stations);
 		handler = new MPGHandler(gui);
