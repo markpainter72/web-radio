@@ -139,6 +139,10 @@ public class RadioGUI extends JFrame
 	public void setStreamTitle(String title)
 	{
 		message.setText(title);
+		if (title.length() != 0)
+		{
+			message.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, (this.getWidth()/15)/(title.length()/40)));
+		}
 	}
 	
 	private void comboBoxChange()
