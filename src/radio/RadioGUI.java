@@ -45,7 +45,7 @@ public class RadioGUI extends JFrame
 		catch(Exception e){}
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 150);
+		setBounds(100, 100, 700, 150);
 		this.setMinimumSize(new Dimension(400, 150));
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -139,10 +139,7 @@ public class RadioGUI extends JFrame
 	public void setStreamTitle(String title)
 	{
 		message.setText(title);
-		if (title.length() != 0)
-		{
-			message.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, (this.getWidth()/15)/(title.length()/40)));
-		}
+		message.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 16));
 	}
 	
 	private void comboBoxChange()
