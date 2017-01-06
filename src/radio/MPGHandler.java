@@ -20,7 +20,6 @@ public class MPGHandler implements Runnable
 		{
 			try 
 			{
-				System.out.println(inthread);
 				process = Runtime.getRuntime().exec(buildCMD(url, volume));
 				if (inthread == null)
 				{
