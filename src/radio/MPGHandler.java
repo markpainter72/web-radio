@@ -2,6 +2,7 @@ package radio;
 
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MPGHandler implements Runnable
 {
@@ -79,7 +80,26 @@ public class MPGHandler implements Runnable
 			String msg = new String();
 			try
 			{
-				msg = in.readLine();
+				ArrayList<Byte> bytes = new ArrayList<Byte>();
+				byte b = 0;
+				while (b != 10)
+				{
+					b = in.readByte();
+					if (b != 10)
+					{
+						bytes.add(b);
+					}
+					else
+					{
+						break;
+					}
+				}
+				byte[] byteArray = new byte[bytes.size()];
+				for (int i = 0; i < byteArray.length; i++)
+				{
+					byteArray[i] = bytes.get(i);
+				}
+				msg = new String(byteArray);
 			}
 			catch(Exception e)
 			{
