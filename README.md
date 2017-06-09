@@ -1,4 +1,4 @@
-##Usage:
+## Usage:
   
 Install mpg123:  
   
@@ -14,5 +14,5 @@ Insert the stream urls of the radio stations in the following format:
   
 '[station name]~[url]' - seperated by a newline  
   
-##Screenshot:
+## Screenshot:
 ![Screenshot](/radio.png?raw=true)
